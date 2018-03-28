@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="eae-upms-rpc-service"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <!-- 菜单管理 -->
+    <dubbo:service interface="me.eae.upms.rpc.api.MenuService" ref="menuService" timeout="10000"/>
+    <bean id="menuService" class="me.eae.upms.rpc.service.impl.MenuServiceImpl"/>
+    <!-- 菜单管理 -->
+    <dubbo:service interface="me.eae.upms.rpc.api.DeptService" ref="deptService" timeout="10000"/>
+    <bean id="deptService" class="me.eae.upms.rpc.service.impl.DeptServiceImpl"/>
+    <!-- 菜单管理 -->
+    <dubbo:service interface="me.eae.upms.rpc.api.ResourceTypeService" ref="resourceTypeService" timeout="10000"/>
+    <bean id="resourceTypeService" class="me.eae.upms.rpc.service.impl.ResourceTypeServiceImpl"/>
+    <!-- 菜单管理 -->
+    <dubbo:service interface="me.eae.upms.rpc.api.RoleResourceTypeService" ref="roleResourceTypeService" timeout="10000"/>
+    <bean id="roleResourceTypeService" class="me.eae.upms.rpc.service.impl.RoleResourceTypeServiceImpl"/>
+    <!-- 角色管理 -->
+    <dubbo:service interface="me.eae.upms.rpc.api.RoleService" ref="roleService" timeout="10000"/>
+    <bean id="roleService" class="me.eae.upms.rpc.service.impl.RoleServiceImpl"/>
+    <!-- session管理 -->
+    <dubbo:service interface="me.eae.upms.rpc.api.SessionService" ref="sessionService" timeout="10000"/>
+    <bean id="sessionService" class="me.eae.upms.rpc.service.impl.SessionServiceImpl"/>
+</beans>
