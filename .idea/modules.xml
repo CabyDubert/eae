@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eae.iml" filepath="$PROJECT_DIR$/eae.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-common/eae-common.iml" filepath="$PROJECT_DIR$/eae-common/eae-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-upms/eae-upms-api/eae-upms-api.iml" filepath="$PROJECT_DIR$/eae-upms/eae-upms-api/eae-upms-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-upms/eae-upms-client/eae-upms-client.iml" filepath="$PROJECT_DIR$/eae-upms/eae-upms-client/eae-upms-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-upms/eae-upms-common/eae-upms-common.iml" filepath="$PROJECT_DIR$/eae-upms/eae-upms-common/eae-upms-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-upms/eae-upms-dao/eae-upms-dao.iml" filepath="$PROJECT_DIR$/eae-upms/eae-upms-dao/eae-upms-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-upms/eae-upms-service/eae-upms-service.iml" filepath="$PROJECT_DIR$/eae-upms/eae-upms-service/eae-upms-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eae-upms/eae-upms-web/eae-upms-web.iml" filepath="$PROJECT_DIR$/eae-upms/eae-upms-web/eae-upms-web.iml" />
+    </modules>
+  </component>
+</project>
