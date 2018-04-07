@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.eae.webmagic.dao.WebmagicUserDao">
+
+	<select id="get" resultType="me.eae.webmagic.domain.WebmagicUserDO">
+		select `id`,`address`,`nick_name`,`sex` from webmagic_user where id = #{value}
+	</select>
+
+	<select id="list" resultType="me.eae.webmagic.domain.WebmagicUserDO">
+		select `id`,`address`,`nick_name`,`sex` from webmagic_user
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="nickName != null and nickName != ''"> and nick_name = #{nickName} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from webmagic_user
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="nickName != null and nickName != ''"> and nick_name = #{nickName} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="me.eae.webmagic.domain.WebmagicUserDO">
+		insert into webmagic_user
+		(
+			`id`, 
+			`address`, 
+			`nick_name`, 
+			`sex`
+		)
+		values
+		(
+			#{id}, 
+			#{address}, 
+			#{nickName}, 
+			#{sex}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="me.eae.webmagic.domain.WebmagicUserDO">
+		update webmagic_user 
+		<set>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="nickName != null">`nick_name` = #{nickName}, </if>
+			<if test="sex != null">`sex` = #{sex}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from webmagic_user where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from webmagic_user where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

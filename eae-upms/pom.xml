@@ -15,6 +15,7 @@
         <module>eae-upms-web</module>
         <module>eae-upms-common</module>
         <module>eae-upms-client</module>
+        <module>../eae-webMagic</module>
     </modules>
     <build>
         <plugins>

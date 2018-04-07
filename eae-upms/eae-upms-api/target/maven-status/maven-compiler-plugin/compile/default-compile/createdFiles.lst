@@ -1,5 +1,7 @@
 me\eae\upms\rpc\api\MenuService.class
+me\eae\upms\rpc\api\ResourceTypeService.class
 me\eae\upms\rpc\api\SessionService.class
 me\eae\upms\rpc\api\RoleResourceTypeService.class
 me\eae\upms\rpc\api\UserService.class
 me\eae\upms\rpc\api\RoleService.class
+me\eae\upms\rpc\api\DeptService.class

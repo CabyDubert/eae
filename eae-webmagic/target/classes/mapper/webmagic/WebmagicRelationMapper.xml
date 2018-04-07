@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.eae.webmagic.dao.WebmagicRelationDao">
+
+	<select id="get" resultType="me.eae.webmagic.domain.WebmagicRelationDO">
+		select `id`,`user_id`,`relation_id`,`relation_type` from webmagic_relation where id = #{value}
+	</select>
+
+	<select id="list" resultType="me.eae.webmagic.domain.WebmagicRelationDO">
+		select `id`,`user_id`,`relation_id`,`relation_type` from webmagic_relation
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="relationId != null and relationId != ''"> and relation_id = #{relationId} </if>
+		  		  <if test="relationType != null and relationType != ''"> and relation_type = #{relationType} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from webmagic_relation
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="relationId != null and relationId != ''"> and relation_id = #{relationId} </if>
+		  		  <if test="relationType != null and relationType != ''"> and relation_type = #{relationType} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="me.eae.webmagic.domain.WebmagicRelationDO">
+		insert into webmagic_relation
+		(
+			`id`, 
+			`user_id`, 
+			`relation_id`, 
+			`relation_type`
+		)
+		values
+		(
+			#{id}, 
+			#{userId}, 
+			#{relationId}, 
+			#{relationType}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="me.eae.webmagic.domain.WebmagicRelationDO">
+		update webmagic_relation 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="relationId != null">`relation_id` = #{relationId}, </if>
+			<if test="relationType != null">`relation_type` = #{relationType}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from webmagic_relation where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from webmagic_relation where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

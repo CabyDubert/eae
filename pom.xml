@@ -11,6 +11,7 @@
     <modules>
         <module>eae-upms</module>
         <module>eae-common</module>
+        <module>eae-webmagic</module>
     </modules>
 
     <build>

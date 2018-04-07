@@ -6,12 +6,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/eae-common/pom.xml" />
         <option value="$PROJECT_DIR$/eae-upms/eae-upms-web/pom.xml" />
-      </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
         <option value="$PROJECT_DIR$/eae-upms/pom.xml" />
-      </set>
+      </list>
     </option>
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
